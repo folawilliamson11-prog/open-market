@@ -1,0 +1,957 @@
+/* =====================================================
+   ADEBAYO OLANIYI PORTFOLIO
+   Shared styles for index.html and openmarket.html
+   ===================================================== */
+
+:root {
+  --navy: #102a43;
+  --navy-light: #174a5c;
+  --teal: #007f78;
+  --teal-dark: #075764;
+  --teal-light: #dff5f2;
+  --orange: #f28c28;
+  --cream: #f7f5ef;
+  --white: #ffffff;
+  --text: #243442;
+  --muted: #5c6b76;
+  --border: #dce4e8;
+  --shadow: 0 20px 55px rgba(16, 42, 67, 0.13);
+  --small-shadow: 0 10px 30px rgba(16, 42, 67, 0.07);
+  --radius: 24px;
+  --max-width: 1160px;
+}
+
+/* General reset */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  width: min(90%, var(--max-width));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  top: 10px;
+  left: -9999px;
+  z-index: 1000;
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 18px;
+}
+
+.skip-link:focus {
+  left: 10px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
+
+/* Navigation */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.logo {
+  color: var(--navy);
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-size: 0.94rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--teal);
+}
+
+/* Typography */
+
+.eyebrow {
+  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.15;
+}
+
+h1 {
+  color: var(--navy);
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: -0.055em;
+}
+
+section {
+  padding: 90px 0;
+}
+
+.section-heading {
+  max-width: 780px;
+  margin-bottom: 45px;
+}
+
+.section-heading h2 {
+  color: var(--navy);
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+/* Buttons */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-block;
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.button-primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--navy);
+}
+
+.button:hover,
+.button:focus {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* =====================================================
+   PORTFOLIO HOMEPAGE
+   ===================================================== */
+
+.portfolio-page .hero {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(0, 127, 120, 0.16),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
+  padding: 100px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.portfolio-page .hero h2 {
+  color: var(--teal);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin: 24px 0 18px;
+}
+
+.hero-copy {
+  color: var(--muted);
+  font-size: 1.1rem;
+  max-width: 680px;
+}
+
+.hero-card {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 40px 40px 100px 40px;
+  padding: 42px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card span {
+  color: #78ded6;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.hero-card strong {
+  display: block;
+  font-size: 2.3rem;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.hero-card ul {
+  padding-left: 20px;
+}
+
+/* Expertise */
+
+.expertise {
+  background: var(--cream);
+}
+
+.card-grid,
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--small-shadow);
+}
+
+.card-number {
+  color: var(--orange);
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+.card h3 {
+  color: var(--navy);
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+/* Featured OpenMarket project */
+
+.project {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.project .section-heading h2,
+.project .section-heading p {
+  color: var(--white);
+}
+
+.project-shell {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.project-visual {
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.22),
+      transparent 22%
+    ),
+    linear-gradient(145deg, #00a99d, #006a67);
+  border-radius: 36px;
+  padding: 35px;
+}
+
+/* Phone illustration */
+
+.phone {
+  min-height: 420px;
+  background: var(--white);
+  color: var(--text);
+  border: 7px solid var(--navy);
+  border-radius: 32px;
+  padding: 24px 18px;
+  box-shadow: var(--shadow);
+}
+
+.project-visual .phone {
+  width: 235px;
+  transform: rotate(-4deg);
+}
+
+.phone-brand,
+.phone-top {
+  color: var(--teal);
+  font-size: 1.15rem;
+  font-weight: 900;
+  margin-bottom: 22px;
+}
+
+.phone-banner {
+  background: var(--teal-light);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.phone-banner strong {
+  color: var(--navy);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.phone-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.product {
+  min-height: 95px;
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+/* Experience timeline */
+
+.timeline {
+  max-width: 880px;
+}
+
+.job {
+  position: relative;
+  border-left: 3px solid var(--teal);
+  padding: 0 0 38px 30px;
+}
+
+.job::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  top: 4px;
+  left: -10px;
+  background: var(--teal);
+  border: 4px solid var(--white);
+  border-radius: 50%;
+}
+
+.job h3 {
+  color: var(--navy);
+  font-size: 1.3rem;
+}
+
+.job-meta {
+  color: var(--teal);
+  font-weight: 800;
+  margin: 5px 0 10px;
+}
+
+.job p {
+  color: var(--muted);
+}
+
+/* Contact section */
+
+.contact,
+.next-step {
+  background: var(--cream);
+  text-align: center;
+}
+
+.contact .section-heading,
+.next-step .section-heading {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.contact .actions,
+.next-step .actions {
+  justify-content: center;
+}
+
+/* =====================================================
+   OPENMARKET CASE STUDY
+   ===================================================== */
+
+.case-study-page .hero {
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(0, 127, 120, 0.3),
+      transparent 25%
+    ),
+    linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--white);
+  padding: 110px 0 100px;
+}
+
+.case-study-page .hero .eyebrow {
+  color: #7ce2da;
+}
+
+.case-study-page .hero h1 {
+  color: var(--white);
+  font-size: clamp(3.5rem, 10vw, 7rem);
+}
+
+.hero-intro {
+  color: #d8e7ec;
+  font-size: 1.15rem;
+  max-width: 750px;
+  margin: 28px 0 38px;
+}
+
+.project-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 30px;
+}
+
+.meta-item span {
+  color: #7ce2da;
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.meta-item strong {
+  color: var(--white);
+  font-size: 0.95rem;
+}
+
+.overview-grid,
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.content-block h2 {
+  color: var(--navy);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.content-block h3 {
+  color: var(--navy);
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+}
+
+.content-block p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.highlight {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 35px;
+}
+
+.highlight strong {
+  color: var(--navy);
+  display: block;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.highlight p {
+  color: var(--muted);
+}
+
+/* Challenge */
+
+.challenge,
+.wireframes,
+.accessibility {
+  background: var(--cream);
+}
+
+.statement {
+  color: var(--navy);
+  font-size: clamp(1.65rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.3;
+  max-width: 950px;
+}
+
+/* Process */
+
+.process {
+  counter-reset: process;
+}
+
+.process-item {
+  counter-increment: process;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 25px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.process-item::before {
+  content: "0" counter(process);
+  color: var(--teal);
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+.process-item h3 {
+  color: var(--navy);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.process-item p {
+  color: var(--muted);
+}
+
+/* Persona */
+
+.persona {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.persona .section-heading h2,
+.persona .section-heading p {
+  color: var(--white);
+}
+
+.persona .eyebrow {
+  color: #7ce2da;
+}
+
+.persona-card {
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 30px;
+  padding: 40px;
+}
+
+.avatar {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, var(--teal), #00a99d);
+  border-radius: 24px;
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.persona-details h3 {
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.persona-details .role {
+  color: #7ce2da;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.persona-details h4 {
+  color: #7ce2da;
+  margin: 20px 0 7px;
+}
+
+.persona-details p,
+.persona-details li {
+  color: #d8e7ec;
+}
+
+.persona-details ul {
+  padding-left: 20px;
+}
+
+/* Journey flow */
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.flow-step {
+  min-height: 115px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: var(--teal-light);
+  color: var(--navy);
+  border-radius: 18px;
+  padding: 16px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.flow-step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -14px;
+  z-index: 2;
+  color: var(--teal);
+  font-size: 1.2rem;
+}
+
+/* Wireframes */
+
+.phone-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Design system */
+
+.design-system {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.design-system .section-heading h2,
+.design-system .section-heading p {
+  color: var(--white);
+}
+
+.design-system .eyebrow {
+  color: #7ce2da;
+}
+
+.colour-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.colour {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 22px;
+  padding: 22px;
+  font-weight: 800;
+}
+
+.colour-navy {
+  background: #102a43;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.colour-teal {
+  background: #007f78;
+}
+
+.colour-orange {
+  background: #f28c28;
+  color: var(--navy);
+}
+
+.colour-cream {
+  background: #f7f5ef;
+  color: var(--navy);
+}
+
+/* Proposed solution */
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.solution {
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.solution-screen {
+  min-height: 300px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(
+      circle at 70% 20%,
+      rgba(255, 255, 255, 0.25),
+      transparent 20%
+    ),
+    linear-gradient(145deg, #00978e, var(--teal-dark));
+/* Accessibility */
+
+.checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  list-style: none;
+}
+
+.checklist li {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  font-weight: 700;
+}
+
+.checklist li::before {
+  content: "✓";
+  color: var(--teal);
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+/* Outcome */
+
+.outcome-panel {
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: var(--white);
+  border-radius: 32px;
+  padding: 45px;
+}
+
+.outcome-panel h3 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.outcome-panel p {
+  color: #e0f1ef;
+  margin-bottom: 16px;
+}
+
+.disclaimer {
+  background: #edf1f3;
+  border-left: 5px solid var(--orange);
+  padding: 24px;
+  margin-top: 40px;
+}
+
+.disclaimer strong {
+  color: var(--navy);
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Footer */
+
+footer {
+  background: var(--navy);
+  color: #d8e7ec;
+  padding: 30px 0;
+  text-align: center;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .project-meta,
+  .card-grid,
+  .cards,
+  .solution-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .phone-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .flow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .flow-step::after {
+    display: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero-grid,
+  .project-shell,
+  .overview-grid,
+  .two-column,
+  .persona-card {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-page .hero {
+    min-height: auto;
+    padding: 75px 0;
+  }
+
+  .hero-card {
+    border-radius: 30px;
+  }
+
+  .project-visual {
+    min-height: 410px;
+  }
+
+  .persona-card {
+    padding: 25px;
+  }
+
+  .avatar {
+    min-height: 200px;
+  }
+
+  section {
+    padding: 70px 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .project-meta,
+  .card-grid,
+  .cards,
+  .phone-grid,
+  .solution-grid,
+  .colour-grid,
+  .checklist,
+  .flow {
+    grid-template-columns: 1fr;
+  }
+
+  h1,
+  .case-study-page .hero h1 {
+    font-size: 3.4rem;
+  }
+
+  .project-details {
+    grid-template-columns: 1fr;
+  }
+
+  .process-item {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+On Mon, 14 Sept 2026, 17:08 Olaniyi Adebayo, <baysun01@gmail.com> wrote:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
