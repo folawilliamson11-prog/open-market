@@ -957,3 +957,24 @@ On Mon, 14 Sept 2026, 17:08 Olaniyi Adebayo, <baysun01@gmail.com> wrote:
     name="description"
 </> CSS
    /* Interaction styles */
+/* OpenMarket case-study image */
+
+.case-study-image {
+  margin: 40px auto;
+}
+
+.case-study-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.case-study-image figcaption {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 16px;
+  text-align: center;
+}
