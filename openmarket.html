@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
@@ -12,52 +15,64 @@
 
   <title>OpenMarket Case Study | Adebayo Olaniyi</title>
 
-     <link rel="stylesheet" href="style.css"
-        <style>
+  <style>
     :root {
       --navy: #102a43;
-      --teal: #007f78;
-      --teal-light: #dff5f2;
-      --orange: #f28c28;
-      --cream: #f7f5ef;
-      --white: #ffffff;
-      --text: #243442;
-      --muted: #5c6b76;
-      --border: #dce4e8;
-      --shadow: 0 20px 55px rgba(16, 42, 67, 0.13);
-      --radius: 24px;
-      --max-width: 1160px;
+      --navy-dark: #071b2d;
+    .container {
+      width: min(90%, var(--max-width));
+      margin: 0 auto;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    <body  class="case-study-page">
-      background: var(--white);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-      font-size: 1.1rem;
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 20px;
+      z-index: 1000;
+      background: var(--orange);
+      color: var(--navy-dark);
+      padding: 12px 18px;
+      border-radius: 8px;
       font-weight: 800;
+    }
+
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .navigation {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      color: var(--navy);
+      font-size: 1.08rem;
+      font-weight: 900;
       text-decoration: none;
+    }
+
+    .brand:hover,
+    .brand:focus {
+      color: var(--teal);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
+      gap: 24px;
       list-style: none;
     }
 
@@ -73,52 +88,118 @@
       color: var(--teal);
     }
 
-    .hero {
-      background:
-        radial-gradient(circle at 80% 15%, rgba(0, 127, 120, 0.25), transparent 25%),
-        linear-gradient(135deg, var(--navy), #174a5c);
+    .menu-button {
+      display: none;
+      background: var(--navy);
       color: var(--white);
-      padding: 110px 0 100px;
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 82% 18%,
+          rgba(0, 127, 120, 0.42),
+          transparent 29%
+        ),
+        linear-gradient(135deg, var(--navy-dark), #174a5c);
+      color: var(--white);
+      padding: 105px 0 90px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      bottom: -150px;
+      width: 440px;
+      height: 440px;
+      border: 70px solid rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
       color: #7ce2da;
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 0.8rem;
+      font-weight: 900;
       letter-spacing: 0.15em;
-      margin-bottom: 18px;
       text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(3.5rem, 10vw, 7rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
       max-width: 850px;
+      margin: 18px 0 24px;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
     }
 
     .hero-intro {
+      max-width: 770px;
       color: #d8e7ec;
-      font-size: 1.15rem;
-      max-width: 750px;
-      margin: 28px 0 38px;
+      font-size: 1.18rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-block;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      padding: 12px 23px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--orange);
+      color: var(--navy-dark);
+    }
+
+    .button-secondary {
+      border-color: rgba(255, 255, 255, 0.65);
+      color: var(--white);
+    }
+
+    .button:hover,
+    .button:focus {
+      transform: translateY(-2px);
     }
 
     .project-meta {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      margin-top: 48px;
       padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.24);
     }
 
     .meta-item span {
-      color: #7ce2da;
       display: block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
       margin-bottom: 5px;
+      color: #7ce2da;
+      font-size: 0.73rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
@@ -128,24 +209,29 @@
     }
 
     section {
-      padding: 90px 0;
+      padding: 88px 0;
+    }
+
+    .section-alt {
+      background: var(--cream);
+    }
+
+    .section-dark {
+      background: var(--navy);
+      color: var(--white);
     }
 
     .section-heading {
-      max-width: 780px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading .eyebrow {
-      color: var(--teal);
+      max-width: 790px;
+      margin-bottom: 42px;
     }
 
     .section-heading h2 {
+      margin: 8px 0 16px;
       color: var(--navy);
       font-size: clamp(2.1rem, 5vw, 3.5rem);
       line-height: 1.08;
       letter-spacing: -0.035em;
-      margin-bottom: 18px;
     }
 
     .section-heading p {
@@ -153,7 +239,11 @@
       font-size: 1.05rem;
     }
 
-    .overview-grid,
+    .section-dark .section-heading h2,
+    .section-dark .section-heading p {
+      color: var(--white);
+    }
+
     .two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -162,50 +252,37 @@
     }
 
     .content-block h3 {
+      margin-bottom: 12px;
       color: var(--navy);
       font-size: 1.35rem;
-      margin-bottom: 12px;
     }
 
     .content-block p {
-      color: var(--muted);
       margin-bottom: 18px;
+      color: var(--muted);
     }
 
     .highlight {
-      background: var(--cream);
+      background: var(--teal-light);
       border-radius: var(--radius);
-      padding: 35px;
+      padding: 34px;
     }
 
     .highlight strong {
-      color: var(--navy);
       display: block;
-      font-size: 1.25rem;
       margin-bottom: 12px;
+      color: var(--navy);
+      font-size: 1.25rem;
     }
 
     .highlight p {
       color: var(--muted);
     }
 
-    .challenge {
-      background: var(--cream);
-    }
-
-    .statement {
-      color: var(--navy);
-      font-size: clamp(1.65rem, 4vw, 2.5rem);
-      font-weight: 800;
-      line-height: 1.3;
-      max-width: 950px;
-    }
-
     .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
-      margin-top: 40px;
     }
 
     .card {
@@ -217,16 +294,16 @@
     }
 
     .card-number {
+      margin-bottom: 22px;
       color: var(--orange);
       font-size: 0.85rem;
-      font-weight: 800;
-      margin-bottom: 28px;
+      font-weight: 900;
     }
 
     .card h3 {
+      margin-bottom: 10px;
       color: var(--navy);
       font-size: 1.2rem;
-      margin-bottom: 10px;
     }
 
     .card p {
@@ -254,28 +331,18 @@
     }
 
     .process-item h3 {
+      margin-bottom: 8px;
       color: var(--navy);
       font-size: 1.3rem;
-      margin-bottom: 8px;
     }
 
     .process-item p {
       color: var(--muted);
     }
 
-    .persona {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .persona .section-heading h2,
-    .persona .section-heading p {
-      color: var(--white);
-    }
-
     .persona-card {
       display: grid;
-      grid-template-columns: 0.65fr 1.35fr;
+      grid-template-columns: 0.7fr 1.3fr;
       gap: 40px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.18);
@@ -283,176 +350,85 @@
       padding: 40px;
     }
 
-    .avatar {
+    .persona-summary {
       display: grid;
       place-items: center;
-      min-height: 280px;
-      background: linear-gradient(145deg, var(--teal), #00a99d);
+      min-height: 250px;
+      background: linear-gradient(145deg, var(--teal), #005f5a);
       border-radius: 24px;
-      font-size: 5rem;
-      font-weight: 900;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .persona-summary h3 {
+      font-size: 1.7rem;
     }
 
     .persona-details h3 {
-      color: var(--white);
-      font-size: 2rem;
-      margin-bottom: 6px;
+      margin-bottom: 14px;
+      font-size: 1.5rem;
     }
 
-    .persona-details .role {
-      color: #7ce2da;
-      font-weight: 800;
-      margin-bottom: 25px;
-    }
-
-    .persona-details h4 {
-      color: #7ce2da;
-      margin: 20px 0 7px;
-    }
-
-    .persona-details p,
-    .persona-details li {
+    .persona-details p {
+      margin-bottom: 20px;
       color: #d8e7ec;
     }
 
     .persona-details ul {
       padding-left: 20px;
+      color: #d8e7ec;
+    }
+
+    .persona-details li {
+      margin-bottom: 10px;
     }
 
     .flow {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 12px;
+      align-items: center;
     }
 
     .flow-step {
-      display: grid;
-      place-items: center;
-      min-height: 115px;
-      background: var(--teal-light);
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 15px;
       color: var(--navy);
-      border-radius: 18px;
-      padding: 16px;
-      font-size: 0.9rem;
       font-weight: 800;
       text-align: center;
-      position: relative;
     }
 
     .flow-step:not(:last-child)::after {
       content: "→";
       position: absolute;
-      right: -14px;
-      color: var(--teal);
-      font-size: 1.2rem;
+      top: 50%;
+      right: -15px;
       z-index: 2;
+      color: var(--orange);
+      font-size: 1.3rem;
+      transform: translateY(-50%);
     }
 
-    .wireframes {
-      background: var(--cream);
-    }
-
-    .phone-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .phone {
-      min-height: 430px;
-      background: var(--white);
-      border: 7px solid var(--navy);
+    .visual-board {
+      background: var(--navy);
       border-radius: 30px;
-      padding: 22px 15px;
+      padding: 25px;
       box-shadow: var(--shadow);
     }
 
-    .phone-top {
-      color: var(--teal);
-      font-weight: 900;
-      margin-bottom: 20px;
+    .visual-board img {
+      width: 100%;
+      border-radius: 18px;
     }
 
-    .wireframe-line {
-      height: 10px;
-      background: #dbe3e7;
-      border-radius: 10px;
-      margin-bottom: 11px;
-    }
-
-    .wireframe-line.short {
-      width: 60%;
-    }
-
-    .wireframe-block {
-      min-height: 85px;
-      background: var(--cream);
-      border-radius: 14px;
-      margin: 15px 0;
-    }
-
-    .wireframe-button {
-      background: var(--teal);
-      color: var(--white);
-      border-radius: 30px;
-      padding: 11px;
-      margin-top: 20px;
-      font-size: 0.8rem;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .phone-label {
-      color: var(--navy);
+    .image-caption {
+      margin-top: 15px;
+      color: #d8e7ec;
       font-size: 0.9rem;
-      font-weight: 800;
-      margin-top: 16px;
       text-align: center;
-    }
-
-    .design-system {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .design-system .section-heading h2,
-    .design-system .section-heading p {
-      color: var(--white);
-    }
-
-    .colour-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .colour {
-      min-height: 190px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      border-radius: 22px;
-      padding: 22px;
-      font-weight: 800;
-    }
-
-    .colour-navy {
-      background: #102a43;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .colour-teal {
-      background: #007f78;
-    }
-
-    .colour-orange {
-      background: #f28c28;
-      color: var(--navy);
-    }
-
-    .colour-cream {
-      background: #f7f5ef;
-      color: var(--navy);
     }
 
     .solution-grid {
@@ -462,47 +438,51 @@
     }
 
     .solution {
+      overflow: hidden;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      overflow: hidden;
       box-shadow: var(--shadow);
     }
 
     .solution-screen {
-      min-height: 300px;
+      min-height: 250px;
       display: grid;
       place-items: center;
       background:
-        radial-gradient(circle at 70% 20%, rgba(255,255,255,.25), transparent 20%),
-        linear-gradient(145deg, #00978e, #075764);
+        radial-gradient(
+          circle at 70% 20%,
+          rgba(255, 255, 255, 0.25),
+          transparent 25%
+        ),
+        linear-gradient(145deg, var(--teal), #075764);
       padding: 25px;
     }
 
     .screen-card {
-      width: 78%;
+      width: 80%;
       background: var(--white);
       border-radius: 22px;
-      padding: 22px;
+      padding: 20px;
       box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
     }
 
-    .screen-card strong {
-      color: var(--navy);
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .screen-card div {
-      height: 12px;
+    .screen-line {
+      height: 11px;
+      margin-bottom: 11px;
       background: #dfe8eb;
       border-radius: 10px;
-      margin-bottom: 10px;
     }
 
-    .screen-card div:last-child {
+    .screen-line.short {
       width: 65%;
+    }
+
+    .screen-button {
+      height: 34px;
+      margin-top: 20px;
       background: var(--orange);
+      border-radius: 18px;
     }
 
     .solution-copy {
@@ -510,21 +490,17 @@
     }
 
     .solution-copy h3 {
-      color: var(--navy);
       margin-bottom: 8px;
+      color: var(--navy);
     }
 
     .solution-copy p {
       color: var(--muted);
     }
 
-    .accessibility {
-      background: var(--cream);
-    }
-
     .checklist {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
       list-style: none;
     }
@@ -539,9 +515,9 @@
 
     .checklist li::before {
       content: "✓";
+      margin-right: 10px;
       color: var(--teal);
       font-weight: 900;
-      margin-right: 10px;
     }
 
     .outcome-panel {
@@ -552,49 +528,26 @@
     }
 
     .outcome-panel h3 {
-      font-size: 2rem;
       margin-bottom: 18px;
+      font-size: 2rem;
     }
 
     .outcome-panel p {
-      color: #e0f1ef;
       margin-bottom: 16px;
+      color: #e0f1ef;
     }
 
     .disclaimer {
+      margin-top: 35px;
+      padding: 24px;
       background: #edf1f3;
       border-left: 5px solid var(--orange);
-      padding: 24px;
-      margin-top: 40px;
     }
 
     .disclaimer strong {
-      color: var(--navy);
       display: block;
       margin-bottom: 5px;
-    }
-
-    .button {
-      display: inline-block;
-      border: 2px solid var(--navy);
-      border-radius: 999px;
-      padding: 13px 22px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: 0.2s ease;
-    }
-
-    .button-primary {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .button:hover,
-    .button:focus {
-      background: var(--teal);
-      border-color: var(--teal);
-      color: var(--white);
-      transform: translateY(-2px);
+      color: var(--navy);
     }
 
     .next-step {
@@ -603,25 +556,58 @@
     }
 
     .next-step .section-heading {
-      margin-left: auto;
       margin-right: auto;
+      margin-left: auto;
     }
 
-    .actions {
+    .next-actions {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 14px;
     }
 
-    footer {
+    .next-actions .button-primary {
       background: var(--navy);
+      color: var(--white);
+    }
+
+    .next-actions .button-secondary {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    footer {
+      background: var(--navy-dark);
       color: #d8e7ec;
       padding: 30px 0;
       text-align: center;
     }
 
-    :focus-visible {
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 90;
+      display: none;
+      width: 46px;
+      height: 46px;
+      background: var(--orange);
+      color: var(--navy-dark);
+      border: 0;
+      border-radius: 50%;
+      font-size: 1.25rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    .back-to-top.visible {
+      display: block;
+    }
+
+    a:focus,
+    button:focus {
       outline: 3px solid var(--orange);
       outline-offset: 4px;
     }
@@ -630,10 +616,6 @@
       .project-meta,
       .cards,
       .solution-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .phone-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -647,22 +629,36 @@
     }
 
     @media (max-width: 720px) {
-      .nav-links {
-        display: none;
+      .menu-button {
+        display: block;
       }
 
-      .overview-grid,
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        right: 5%;
+        left: 5%;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
       .two-column,
       .persona-card {
         grid-template-columns: 1fr;
       }
 
-      .persona-card {
-        padding: 25px;
-      }
-
-      .avatar {
-        min-height: 200px;
+      .hero {
+        padding: 80px 0 70px;
       }
 
       section {
@@ -673,9 +669,7 @@
     @media (max-width: 520px) {
       .project-meta,
       .cards,
-      .phone-grid,
       .solution-grid,
-      .colour-grid,
       .checklist,
       .flow {
         grid-template-columns: 1fr;
@@ -689,6 +683,11 @@
         grid-template-columns: 55px 1fr;
       }
 
+      .outcome-panel,
+      .persona-card {
+        padding: 25px;
+      }
+
       .button {
         width: 100%;
         text-align: center;
@@ -698,13 +697,27 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
 
   <header>
-    <nav class="container" aria-label="Case study navigation">
-      <a class="logo" href="index.html">← Adebayo Olaniyi</a>
+    <nav class="container navigation" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        ← Adebayo Olaniyi
+      </a>
 
-      <ul class="nav-links">
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navigationLinks"
+      >
+        Menu
+      </button>
+
+      <ul class="nav-links" id="navigationLinks">
         <li><a href="#challenge">Challenge</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#solution">Solution</a></li>
@@ -715,26 +728,38 @@
 
   <main id="main-content">
     <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Featured product-design case study</p>
+      <div class="container hero-content">
+        <p class="eyebrow">
+          Featured product-design case study
+        </p>
 
         <h1>OpenMarket</h1>
 
         <p class="hero-intro">
-          Designing an accessible, mobile-first marketplace that connects
-          product discovery, secure checkout, delivery tracking and customer
-          support into one coherent experience.
+          An independent enterprise e-commerce concept exploring how
+          customers could discover products, compare reliable sellers and
+          complete purchases through an accessible mobile-first marketplace.
         </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#challenge">
+            Explore the case study
+          </a>
+
+          <a class="button button-secondary" href="index.html">
+            Return to portfolio
+          </a>
+        </div>
 
         <div class="project-meta">
           <div class="meta-item">
-            <span>My role</span>
+            <span>Role</span>
             <strong>Senior UI/UX Designer</strong>
           </div>
 
           <div class="meta-item">
-            <span>Industry</span>
-            <strong>Technology and e-commerce</strong>
+            <span>Project type</span>
+            <strong>Independent concept</strong>
           </div>
 
           <div class="meta-item">
@@ -743,87 +768,90 @@
           </div>
 
           <div class="meta-item">
-            <span>Project type</span>
-            <strong>Independent enterprise concept</strong>
+            <span>Focus</span>
+            <strong>Research, UX and accessibility</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="container overview-grid">
-        <div class="content-block">
-          <p class="eyebrow" style="color: var(--teal);">Project overview</p>
-
-          <h2 style="color: var(--navy); font-size: 2.7rem; line-height: 1.1; margin-bottom: 20px;">
-            Commerce designed around customer confidence.
-          </h2>
-
+    <section id="overview">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Project overview</p>
+          <h2>A clearer and more trustworthy marketplace experience</h2>
           <p>
-            OpenMarket is an enterprise-quality marketplace concept designed
-            for customers who want to discover trustworthy products, understand
-            delivery options, complete secure payments and receive support
-            without moving between fragmented systems.
-          </p>
-
-          <p>
-            The project considers customer expectations alongside commercial,
-            operational, accessibility and technical requirements. It
-            demonstrates how a senior designer can bring structure to a complex
-            product challenge from initial definition through detailed design.
+            OpenMarket was created as a portfolio concept to demonstrate
+            product strategy, customer-centred design, information
+            architecture, interaction design and accessible interface design.
           </p>
         </div>
 
-        <aside class="highlight">
-          <strong>Design objective</strong>
+        <div class="two-column">
+          <div class="content-block">
+            <h3>The opportunity</h3>
+            <p>
+              Online shoppers can face overwhelming product choices,
+              inconsistent seller information, unclear delivery expectations
+              and complicated checkout journeys.
+            </p>
 
-          <p>
-            Create a clear end-to-end marketplace experience that helps
-            customers make informed purchasing decisions and remain confident
-            after an order has been placed.
-          </p>
-        </aside>
+            <p>
+              The concept investigates how a marketplace could reduce those
+              difficulties without removing the range and flexibility
+              customers expect from e-commerce services.
+            </p>
+          </div>
+
+          <div class="highlight">
+            <strong>Design objective</strong>
+            <p>
+              Create a responsive marketplace that helps customers find
+              relevant products, judge seller reliability and complete
+              purchases with confidence.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="challenge" id="challenge">
+    <section class="section-alt" id="challenge">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">The challenge</p>
-          <h2>Online purchasing often becomes fragmented.</h2>
+          <h2>Removing uncertainty from product discovery and checkout</h2>
+          <p>
+            The experience needed to support quick decisions while remaining
+            understandable for customers with different levels of digital
+            confidence.
+          </p>
         </div>
-
-        <p class="statement">
-          How might we help customers discover reliable products, complete
-          purchases confidently and manage deliveries through one accessible
-          mobile experience?
-        </p>
 
         <div class="cards">
           <article class="card">
             <p class="card-number">01</p>
-            <h3>Unclear decisions</h3>
+            <h3>Complex discovery</h3>
             <p>
-              Customers may struggle to compare products, sellers, total costs
-              and delivery options.
+              Customers need useful search, familiar categories and filters
+              that narrow choices without creating additional confusion.
             </p>
           </article>
 
           <article class="card">
             <p class="card-number">02</p>
-            <h3>Checkout friction</h3>
+            <h3>Trust concerns</h3>
             <p>
-              Long forms, unexpected costs and weak payment feedback can cause
-              customers to abandon a purchase.
+              Seller ratings, delivery information, returns and payment
+              protection need to be visible before purchase.
             </p>
           </article>
 
           <article class="card">
             <p class="card-number">03</p>
-            <h3>Limited visibility</h3>
+            <h3>Checkout friction</h3>
             <p>
-              After purchasing, customers need clear delivery updates, support
-              and straightforward return options.
+              Long forms, unexpected costs and unclear progress can cause
+              customers to abandon their baskets.
             </p>
           </article>
         </div>
@@ -834,72 +862,52 @@
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Design process</p>
-          <h2>A structured path from uncertainty to clarity.</h2>
-
+          <h2>A structured approach from problem to interface</h2>
           <p>
-            The process is designed to validate assumptions before investing in
-            detailed interfaces.
+            The project follows a practical product-design process. Because
+            this is a concept case study, the research findings and outcomes
+            are presented as design hypotheses rather than verified company
+            results.
           </p>
         </div>
 
         <div class="process">
           <article class="process-item">
             <div>
-              <h3>Frame the opportunity</h3>
+              <h3>Discover</h3>
               <p>
-                Define the business context, intended customers, key journeys,
-                assumptions, constraints and measures of success.
+                Reviewed common marketplace journeys and identified potential
+                friction around discovery, trust, delivery and payment.
               </p>
             </div>
           </article>
 
           <article class="process-item">
             <div>
-              <h3>Research customer needs</h3>
+              <h3>Define</h3>
               <p>
-                Conduct interviews and review comparable experiences to
-                understand shopping behaviours, trust concerns and delivery
-                expectations.
+                Organised the findings into customer needs, business
+                opportunities and an initial problem statement.
               </p>
             </div>
           </article>
 
           <article class="process-item">
             <div>
-              <h3>Synthesise insights</h3>
+              <h3>Develop</h3>
               <p>
-                Organise findings into themes, provisional personas, journey
-                maps and prioritised customer needs.
+                Created user flows, information architecture, wireframes and
+                reusable interface patterns.
               </p>
             </div>
           </article>
 
           <article class="process-item">
             <div>
-              <h3>Structure the experience</h3>
+              <h3>Evaluate</h3>
               <p>
-                Develop information architecture and user flows covering
-                discovery, checkout, payment, tracking and returns.
-              </p>
-            </div>
-          </article>
-
-          <article class="process-item">
-            <div>
-              <h3>Prototype and evaluate</h3>
-              <p>
-                Create wireframes and interactive prototypes, then evaluate
-                important tasks with representative users.
-              </p>
-            </div>
-          </article>
-
-          <article class="process-item">
-            <div>
-              <h3>Refine and prepare delivery</h3>
-              <p>
-                Apply feedback, strengthen accessibility, document reusable
-                patterns and prepare specifications for implementation.
+                Reviewed the proposed screens against usability,
+                responsiveness and accessibility requirements.
               </p>
             </div>
           </article>
@@ -907,215 +915,114 @@
       </div>
     </section>
 
-    <section class="persona">
+    <section class="section-dark" id="user">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Provisional persona</p>
-          <h2>Designing for a mobile-first customer.</h2>
-
+          <p class="eyebrow">User perspective</p>
+          <h2>Designing for confident decision-making</h2>
           <p>
-            This persona represents an initial design assumption and should be
-            validated through real customer research.
+            A provisional persona helped keep the concept focused on customer
+            needs throughout the design process.
           </p>
         </div>
 
-        <article class="persona-card">
-          <div class="avatar" aria-hidden="true">AO</div>
+        <div class="persona-card">
+          <div class="persona-summary">
+            <div>
+              <h3>Amara</h3>
+              <p>Busy mobile marketplace customer</p>
+            </div>
+          </div>
 
           <div class="persona-details">
-            <h3>Amara Okafor</h3>
-            <p class="role">Busy professional and frequent mobile shopper</p>
-
-            <h4>Goal</h4>
+            <h3>Primary goal</h3>
             <p>
-              Find reliable products, understand the complete cost and receive
-              a purchase without unnecessary uncertainty.
+              Find a suitable product from a dependable seller and complete
+              the purchase quickly without hidden costs or confusing steps.
             </p>
 
-            <h4>Needs</h4>
+            <h3>Important needs</h3>
             <ul>
-              <li>Verified seller and product information</li>
-              <li>Transparent prices and delivery dates</li>
-              <li>A short, secure checkout process</li>
-              <li>Clear order and delivery updates</li>
-              <li>Accessible customer support and returns</li>
+              <li>Clear product and delivery information</li>
+              <li>Useful filters and comparison options</li>
+              <li>Visible seller ratings and customer reviews</li>
+              <li>Secure payment and a simple checkout journey</li>
+              <li>Accessible content across different screen sizes</li>
             </ul>
-
-            <h4>Potential frustrations</h4>
-            <p>
-              Unexpected costs, unclear delivery information, complicated forms
-              and difficulty reaching support after making a payment.
-            </p>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Primary journey</p>
-          <h2>One connected path from discovery to delivery.</h2>
-        </div>
-
-        <div class="flow" aria-label="OpenMarket customer journey">
-          <div class="flow-step">Discover products</div>
-          <div class="flow-step">Compare options</div>
-          <div class="flow-step">Add to basket</div>
-          <div class="flow-step">Complete checkout</div>
-          <div class="flow-step">Track delivery</div>
-          <div class="flow-step">Receive support</div>
         </div>
       </div>
     </section>
 
-    <section class="wireframes">
+    <section class="section-alt" id="journey">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Early concepts</p>
-          <h2>Wireframes focused on hierarchy and task completion.</h2>
+          <p class="eyebrow">Core journey</p>
+          <h2>A focused route from discovery to confirmation</h2>
+        </div>
 
+        <div class="flow" aria-label="Customer journey">
+          <div class="flow-step">Discover</div>
+          <div class="flow-step">Filter</div>
+          <div class="flow-step">Evaluate</div>
+          <div class="flow-step">Checkout</div>
+          <div class="flow-step">Confirm</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="designs">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Interface exploration</p>
+          <h2>Mobile-first OpenMarket screens</h2>
           <p>
-            Low-fidelity concepts establish content priority, navigation and
-            interaction before visual styling is introduced.
+            The screens demonstrate the visual direction for product
+            discovery, categories, product details, the basket and checkout.
           </p>
         </div>
 
-        <div class="phone-grid">
-          <article>
-            <div class="phone">
-              <div class="phone-top">OpenMarket</div>
-              <div class="wireframe-line short"></div>
-              <div class="wireframe-block"></div>
-              <div class="wireframe-line"></div>
-              <div class="wireframe-line short"></div>
-              <div class="wireframe-block"></div>
-            </div>
-            <p class="phone-label">Product discovery</p>
-          </article>
+        <figure class="visual-board">
+          <img
+            src="openmarket-screens.png"
+            alt="OpenMarket mobile interface concepts showing home, categories, product details, basket and checkout screens"
+          >
 
-          <article>
-            <div class="phone">
-              <div class="phone-top">Product details</div>
-              <div class="wireframe-block"></div>
-              <div class="wireframe-line"></div>
-              <div class="wireframe-line"></div>
-              <div class="wireframe-line short"></div>
-              <div class="wireframe-button">Add to basket</div>
-            </div>
-            <p class="phone-label">Product details</p>
-          </article>
-
-          <article>
-            <div class="phone">
-              <div class="phone-top">Checkout</div>
-              <div class="wireframe-line"></div>
-              <div class="wireframe-block"></div>
-              <div class="wireframe-line short"></div>
-              <div class="wireframe-block"></div>
-              <div class="wireframe-button">Confirm payment</div>
-            </div>
-            <p class="phone-label">Secure checkout</p>
-          </article>
-
-          <article>
-            <div class="phone">
-              <div class="phone-top">Order tracking</div>
-              <div class="wireframe-block"></div>
-              <div class="wireframe-line"></div>
-              <div class="wireframe-line"></div>
-              <div class="wireframe-line short"></div>
-              <div class="wireframe-button">Get support</div>
-            </div>
-            <p class="phone-label">Delivery tracking</p>
-          </article>
-        </div>
+          <figcaption class="image-caption">
+            OpenMarket concept screens designed for this independent
+            portfolio case study.
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="design-system">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Visual system</p>
-          <h2>Trustworthy, contemporary and accessible.</h2>
-
-          <p>
-            The proposed visual direction combines strong typography, generous
-            spacing, confident colour and clear interaction states.
-          </p>
-        </div>
-
-        <div class="colour-grid">
-          <div class="colour colour-navy">
-            Deep Navy<br>#102A43
-          </div>
-
-          <div class="colour colour-teal">
-            Marketplace Teal<br>#007F78
-          </div>
-
-          <div class="colour colour-orange">
-            Action Orange<br>#F28C28
-          </div>
-
-          <div class="colour colour-cream">
-            Warm Cream<br>#F7F5EF
-          </div>
-        </div>
-      </div>
-    </section>
-<section aria-labelledby="openmarket-designs-title">
-  <div class="container">
-    <div class="section-heading">
-      <p class="eyebrow">Final interface designs</p>
-
-      <h2 id="openmarket-designs-title">
-        A connected marketplace experience
-      </h2>
-
-      <p>
-        The proposed interface connects product discovery, product evaluation,
-        checkout, delivery tracking and customer support through one consistent
-        design system.
-      </p>
-    </div>
-
-    <figure class="case-study-image">
-      <img
-        src="openmarket-screens.png"
-        alt="Six OpenMarket mobile designs showing product discovery, product details, shopping basket, checkout, delivery tracking and customer support"
-      >
-
-      <figcaption>
-        OpenMarket’s primary customer journey from product discovery to
-        post-purchase support.
-      </figcaption>
-    </figure>
-  </div>
-</section>
-    <section id="solution">
+    <section class="section-alt" id="solution">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Proposed solution</p>
-          <h2>Key experiences designed around confidence.</h2>
+          <h2>Three principles guiding the experience</h2>
+          <p>
+            The proposed interface prioritises clarity, trust and a
+            predictable route through the marketplace.
+          </p>
         </div>
 
         <div class="solution-grid">
           <article class="solution">
             <div class="solution-screen">
               <div class="screen-card">
-                <strong>Discover products</strong>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="screen-line"></div>
+                <div class="screen-line short"></div>
+                <div class="screen-line"></div>
+                <div class="screen-button"></div>
               </div>
             </div>
 
             <div class="solution-copy">
-              <h3>Clear product discovery</h3>
+              <h3>Focused discovery</h3>
               <p>
-                Useful categories, relevant filters and visible seller
-                information support faster decisions.
+                Clear search, categories and filters help customers reduce
+                large product selections.
               </p>
             </div>
           </article>
@@ -1123,18 +1030,18 @@
           <article class="solution">
             <div class="solution-screen">
               <div class="screen-card">
-                <strong>Secure checkout</strong>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="screen-line short"></div>
+                <div class="screen-line"></div>
+                <div class="screen-line"></div>
+                <div class="screen-button"></div>
               </div>
             </div>
 
             <div class="solution-copy">
-              <h3>Transparent checkout</h3>
+              <h3>Visible trust signals</h3>
               <p>
-                Clear totals, delivery information and payment feedback help
-                reduce uncertainty.
+                Seller information, reviews, delivery details and returns are
+                placed close to purchase decisions.
               </p>
             </div>
           </article>
@@ -1142,18 +1049,18 @@
           <article class="solution">
             <div class="solution-screen">
               <div class="screen-card">
-                <strong>Track your order</strong>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="screen-line"></div>
+                <div class="screen-line short"></div>
+                <div class="screen-line short"></div>
+                <div class="screen-button"></div>
               </div>
             </div>
 
             <div class="solution-copy">
-              <h3>Visible order progress</h3>
+              <h3>Simplified checkout</h3>
               <p>
-                Status updates, delivery details and support options remain
-                available after purchase.
+                A logical sequence and clear order summary reduce uncertainty
+                before payment.
               </p>
             </div>
           </article>
@@ -1161,86 +1068,81 @@
       </div>
     </section>
 
-    <section class="accessibility">
+    <section id="accessibility">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Inclusive design</p>
-          <h2>Accessibility considered from the beginning.</h2>
+          <h2>Accessibility considered from the beginning</h2>
+          <p>
+            The proposed experience uses understandable content, visible
+            focus states and responsive layouts to support a wider range of
+            customers.
+          </p>
         </div>
 
         <ul class="checklist">
-          <li>Readable typography and clear content hierarchy</li>
-          <li>Strong colour contrast for essential information</li>
-          <li>Visible focus states for keyboard navigation</li>
-          <li>Descriptive form labels and error messages</li>
-          <li>Controls that do not depend on colour alone</li>
-          <li>Comfortable touch targets on mobile devices</li>
-          <li>Clear feedback after payment and other actions</li>
-          <li>Responsive layouts for different screen sizes</li>
+          <li>Meaningful headings and page structure</li>
+          <li>Keyboard-accessible navigation</li>
+          <li>Visible keyboard focus indicators</li>
+          <li>Readable colour contrast</li>
+          <li>Descriptive labels and alternative text</li>
+          <li>Responsive mobile and desktop layouts</li>
         </ul>
       </div>
     </section>
 
-    <section id="outcome">
+    <section class="section-dark" id="outcome">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Outcome and reflection</p>
-          <h2>A scalable foundation for a connected marketplace.</h2>
+          <h2>A scalable foundation for a marketplace product</h2>
         </div>
 
         <div class="outcome-panel">
           <h3>What the concept demonstrates</h3>
 
           <p>
-            OpenMarket demonstrates an end-to-end marketplace experience
-            covering product discovery, comparison, checkout, payment,
-            delivery tracking, returns and customer support.
+            OpenMarket demonstrates how research assumptions, product
+            strategy, information architecture, interaction design and
+            accessible visual design can be brought together in one
+            end-to-end marketplace experience.
           </p>
 
           <p>
-            The project shows how journey-level thinking, reusable interface
-            patterns and accessibility considerations can support both customer
-            confidence and scalable product delivery.
-          </p>
-
-          <p>
-            The next stage would be to conduct structured customer interviews
-            and usability sessions, measure task completion and comprehension,
-            and use that evidence to refine the proposed experience.
+            The next stage would be moderated usability testing with genuine
+            marketplace customers, followed by design revisions and
+            accessibility testing with assistive technologies.
           </p>
         </div>
 
-        <div class="disclaimer">
-          <strong>Project disclosure</strong>
-
-          OpenMarket is an independent concept project created to demonstrate
-          my approach to enterprise product design. It is not affiliated with
-          Amazon or any other organisation listed in my employment history.
-          The provisional persona and problem statements are design assumptions
-          that should be validated through genuine research.
-        </div>
+        <aside class="disclaimer">
+          <strong>Portfolio disclosure</strong>
+          OpenMarket is an independent conceptual project created for
+          portfolio demonstration. It is not presented as commissioned work
+          for Amazon, Aviva, MTN Nigeria, Nigerian Bottling Company or any
+          other employer. Any outcomes described are proposed design
+          objectives, not verified commercial results.
+        </aside>
       </div>
     </section>
 
     <section class="next-step">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Continue exploring</p>
-          <h2>Thank you for viewing OpenMarket.</h2>
-
+          <p class="eyebrow">Contact</p>
+          <h2>Interested in discussing my design experience?</h2>
           <p>
-            Return to my portfolio, download my CV or contact me to discuss a
-            senior UI/UX design opportunity.
+            View my portfolio, download my CV or contact me directly.
           </p>
         </div>
 
-        <div class="actions">
+        <div class="next-actions">
           <a class="button button-primary" href="index.html">
-            Return to portfolio
+            View portfolio
           </a>
 
           <a
-            class="button"
+            class="button button-secondary"
             href="adebayo-olaniyi-cv.pdf"
             target="_blank"
           >
@@ -1248,10 +1150,19 @@
           </a>
 
           <a
-            class="button"
+            class="button button-secondary"
             href="mailto:folawilliamson11@gmail.com"
           >
-            Contact me
+            Send email
+          </a>
+
+          <a
+            class="button button-secondary"
+            href="https://www.linkedin.com/in/adebayo-olaniyi-2b4b16436"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
           </a>
         </div>
       </div>
@@ -1261,9 +1172,59 @@
   <footer>
     <div class="container">
       <p>
-        © 2026 Adebayo Olaniyi. OpenMarket is an independent concept project.
+        © <span id="currentYear"></span> Adebayo Olaniyi.
+        Senior UI/UX Designer.
       </p>
     </div>
   </footer>
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Return to the top of the page"
+  >
+    ↑
+  </button>
+
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navigationLinks = document.getElementById("navigationLinks");
+    const backToTop = document.getElementById("backToTop");
+    const currentYear = document.getElementById("currentYear");
+
+    currentYear.textContent = new Date().getFullYear();
+
+    menuButton.addEventListener("click", function () {
+      const menuIsOpen = navigationLinks.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        menuIsOpen ? "true" : "false"
+      );
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navigationLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 500) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
 </body>
 </html>
